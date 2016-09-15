@@ -5,6 +5,7 @@ import Home from './modules/Home-View/Home.container.js';
 import Select from './modules/Select-View/Select.container.js';
 import Edit from './modules/Edit-View/Edit.container.js';
 import Question from './modules/Question-View/Question.container.js';
+import Student from './modules/Student-View/Student.container.js';
 import './App.css';
 
 const App = () => (
@@ -13,7 +14,7 @@ const App = () => (
     <Route path="select" component={ Select } />
     <Route path="edit" component={ Edit }/>
     <Route path="/edit/addQuestion" component={ Question }/>
-    <Route path="student" component={ Home }/>
+    <Route path="student" component={ Student }/>
   </Route>
 );
 
