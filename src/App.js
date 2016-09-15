@@ -1,24 +1,20 @@
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import React from 'react';
+import { Route } from 'react-router';
 import Navbar from './components/Navbar';
+import Home from './modules/Home-View/Home.container.js';
+import Select from './modules/Select-View/Select.container.js';
+import Edit from './modules/Edit-View/Edit.container.js';
 import './App.css';
 
-injectTapEventPlugin();
-
-class App extends Component {
-  render() {
-    return (
-      <MuiThemeProvider>
-        <div className="App">
-          <Navbar />
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
-        </div>
-      </MuiThemeProvider>
-    );
-  }
-}
+const App = () => (
+  <Route component={ Navbar }>
+    <Route path="/" component={ Home } />
+    <Route path="select" component={ Select } />
+    <Route path="edit" component={ Edit }>
+      <Route path="addQuestion" />
+    </Route>
+    <Route path="student" component={ Home }/>
+  </Route>
+);
 
 export default App;
