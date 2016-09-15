@@ -1,7 +1,8 @@
 import { CHOOSE_MODE } from './../modules/Home-View/chooseModeActions';
 import { CHOOSE_QUIZ } from './../modules/Select-View/SelectActions';
+import initialState from './../data/initialState.json';
 
-const sessionReducer = (state = {}, action) => {
+const sessionReducer = (state = initialState.session, action) => {
   switch (action.type) {
     case CHOOSE_MODE:
       return Object.assign({}, state, { mode: action.payload });

@@ -1,6 +1,7 @@
 // import { ADD_ENTRY } from;
+import initialState from './../data/initialState.json';
 
-const entryReducer = (state = [], action) => {
+const entryReducer = (state = initialState.entries, action) => {
   switch (action.type) {
     case ADD_ENTRY:
       return

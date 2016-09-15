@@ -1,46 +1,5 @@
 import { ADD_QUESTION } from './../modules/Question-View/QuestionActions';
-
-export const initialState =
-  {
-    questions:
-    [
-      {
-        id: 1,
-        quizId: 0,
-        question: 'Do you love cats?',
-        type: 'Boolean',
-        answer: 'true'
-      },
-      {
-        id: 2,
-        quizId: 0,
-        question: 'What is it about cats that you love?',
-        type: 'String',
-        answer: 'Their meows'
-      },
-      {
-        id: 3,
-        quizId: 0,
-        question: 'Cats love Sour Patch Kids (blue)',
-        type: 'Boolean',
-        answer: 'true'
-      },
-      {
-        id: 4,
-        quizId: 0,
-        question: 'Cats love Sour Patch Kids (yellow)',
-        type: 'Boolean',
-        answer: 'false'
-      },
-      {
-        id: 5,
-        quizId: 0,
-        question: 'Cats will Pick: Honey Straws, Gummi Worms, Sour Skittles',
-        type: 'String',
-        answer: 'Honey Straws'
-      },
-    ]
-  };
+import initialState from './../data/initialState.json';
 
 const questionReducer = (state = initialState.questions, action) => {
   switch (action.type) {

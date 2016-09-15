@@ -11,6 +11,12 @@
   *other answer types
     **adding new type property in each question
 
+/** Answer types
+* 1) Answer types can be added by appending to the choices array
+* 2) When added a new answer type, you should also add make changes to
+*    ~/src/modules/Question-View/Answer.view.js to display type of answer
+*/
+
 
     /*
 

@@ -56,18 +56,28 @@ class Edit extends React.Component {
   }
 
   handleAdd () {
-    console.log('next!');
     browserHistory.push('/edit/addQuestion');
   }
 
   render () {
     return (
       <div>
-        <IconButton onTouchTap={ this.handleBack.bind(this) } iconStyle={ styles.largeIcon } style={ styles.large }>
+        <IconButton
+          onTouchTap={ this.handleBack.bind(this) }
+          iconStyle={ styles.largeIcon }
+          style={ styles.large }
+        >
           <BackArrow />
         </IconButton>
-        <Button label="Add A Question" handleClick={ this.handleAdd.bind(this) } style={ styles.questionButton }/>
-        <QuestionsTable questionsList={ this.state.questionsList } session={ this.props.session }/>
+        <Button
+          label="Add A Question"
+          handleClick={ this.handleAdd.bind(this) }
+          style={ styles.questionButton }
+        />
+        <QuestionsTable
+          questionsList={ this.state.questionsList }
+          session={ this.props.session }
+        />
       </div>
     );
   }

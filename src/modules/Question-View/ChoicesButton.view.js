@@ -9,7 +9,7 @@ const ChoicesButton = props => (
   <RadioButtonGroup
     name={ props.name }
     defaultSelected={ props.default ? props.default : null }
-    onChange={ props.handleAnswerType ? props.handleAnswerType : () => {} }
+    onChange={ props.updateState ? props.updateState : () => {} }
     >
     {
       props.choices.map(choice => (
@@ -27,7 +27,7 @@ ChoicesButton.propTypes = {
   choices: PropTypes.array.isRequired,
   name: PropTypes.string.isRequired,
   default: PropTypes.string,
-  handleAnswerType: PropTypes.func
+  updateState: PropTypes.func
 };
 
 export default ChoicesButton;

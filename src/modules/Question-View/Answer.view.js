@@ -7,23 +7,25 @@ const Answer = props => {
     return (
       <ChoicesButton
         name="Possible Choices"
-        choices={
-          [
-            { value: 'true', label: 'True' },
-            { value: 'false', label: 'False'}
-          ]
-        }
+        updateState={ props.updateState }
+        choices={ props.choices }
       />
     );
   } else if (props.value === 'String') {
     return (
-      <InputField hint="Enter answer here..." label="Answer" />
+      <InputField
+        label="Enter your answer here."
+        hint="eg. A great pair of boots!"
+        updateState={ props.updateState }
+      />
     );
   }
 };
 
 Answer.propTypes = {
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+  updateState: PropTypes.func.isRequired,
+  choices: PropTypes.array
 };
 
 export default Answer;

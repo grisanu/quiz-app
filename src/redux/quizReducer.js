@@ -1,12 +1,5 @@
 // import { ADD_QUIZ } from ;
-
-export const initialState =
-  {
-    quizzes:
-    [
-      { id: 0, name: 'Cats?' }
-    ]
-  };
+import initialState from './../data/initialState.json';
 
 const quizReducer = (state = initialState.quizzes, action) => {
   switch (action.type) {

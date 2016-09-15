@@ -10,7 +10,8 @@ const InputField = props => (
   <TextField
     hintText={ props.hint }
     floatingLabelText={ props.label }
-    multiLine={true}
+    onChange={ props.updateState }
+    multiLine={ true }
     errorText="This field is required."
     errorStyle={ props.style ? props.style : style }
     rows={1}
@@ -19,7 +20,8 @@ const InputField = props => (
 
 InputField.proptypes = {
   hint: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  updateState: PropTypes.string.isRequired
 };
 
 export default InputField;

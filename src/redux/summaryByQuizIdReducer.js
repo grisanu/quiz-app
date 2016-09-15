@@ -1,6 +1,7 @@
 // import { MAKE_SUMMARY } = from;
+import initialState from './../data/initialState.json';
 
-const summaryByQuizIdReducer = (state = {}, action) => {
+const summaryByQuizIdReducer = (state = initialState.summaryByQuizId, action) => {
   switch (action.type) {
     case MAKE_SUMMARY:
       return Object.assign({}, state, { [action.quizId]: action.payload });
