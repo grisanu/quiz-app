@@ -57,6 +57,10 @@ class Edit extends React.Component {
     browserHistory.push('/edit/addQuestion');
   }
 
+  handlePlay () {
+    browserHistory.push('/student');
+  }
+
   render () {
     return (
       <div>
@@ -70,6 +74,11 @@ class Edit extends React.Component {
         <Button
           label="Add A Question"
           handleClick={ this.handleAdd.bind(this) }
+          style={ styles.questionButton }
+        />
+        <Button
+          label="Student Mode"
+          handleClick={ this.handlePlay.bind(this) }
           style={ styles.questionButton }
         />
         <QuestionsTable
