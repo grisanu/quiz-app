@@ -5,21 +5,34 @@ const QuestionsTable = props => (
   <Table>
     <TableHeader>
       <TableRow>
+        <TableHeaderColumn colSpan="3" tooltip="Quiz Name" style={ {textAlign: 'center'} }>
+          { props.session.currentQuiz.name }
+        </TableHeaderColumn>
       </TableRow>
       <TableRow>
-        <TableHeaderColumn>ID</TableHeaderColumn>
         <TableHeaderColumn>Question</TableHeaderColumn>
-        <TableHeaderColumn>Status</TableHeaderColumn>
+        <TableHeaderColumn>Type</TableHeaderColumn>
+        <TableHeaderColumn>Answer</TableHeaderColumn>
       </TableRow>
     </TableHeader>
 
     <TableBody>
+      {
+        props.questionsList.map(question => (
+          <TableRow>
+            <TableRowColumn>{ question.question }</TableRowColumn>
+            <TableRowColumn>{ question.type }</TableRowColumn>
+            <TableRowColumn>{ question.answer }</TableRowColumn>
+          </TableRow>
+        ))
+      }
     </TableBody>
   </Table>
 );
 
 QuestionsTable.propTypes = {
-
+  questionsList: PropTypes.array.isRequired,
+  session: PropTypes.object.isRequired
 };
 
 export default QuestionsTable;

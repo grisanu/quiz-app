@@ -28,11 +28,27 @@ class Edit extends React.Component {
   }
 
   componentWillMount () {
-    this.setState( { questionsList: this.makeList(this.props.questions).bind(this) });
+    const questionsList = this.makeList.bind(this)(this.props.questions);
+
+    // update store
+    this.props.makeQuestionsList(this.props.session.currentQuiz.id, questionsList);
+    // update state
+    this.setState( { questionsList: questionsList });
   }
 
-  makeList (listOfAllQuestions) {
-    this.session.quiz.
+  makeList (listOfAllQuestions, cb) {
+    /**
+    * cb(array of question object)
+    * Objective: mutate the array to change question object order
+    * Return: new array with new order
+    */
+    cb = cb === undefined ? arr => arr : cb;
+
+    return cb(listOfAllQuestions.map(question => {
+      if (question.quizId === this.props.session.currentQuiz.id) {
+        return question;
+      }
+    }));
   }
 
   handleBack () {
@@ -40,7 +56,8 @@ class Edit extends React.Component {
   }
 
   handleAdd () {
-    // browserHistory.push();
+    console.log('next!');
+    browserHistory.push('/edit/addQuestion');
   }
 
   render () {
@@ -50,8 +67,7 @@ class Edit extends React.Component {
           <BackArrow />
         </IconButton>
         <Button label="Add A Question" handleClick={ this.handleAdd.bind(this) } style={ styles.questionButton }/>
-      {JSON.stringify(this.props.questions)}
-      <QuestionsTable />
+        <QuestionsTable questionsList={ this.state.questionsList } session={ this.props.session }/>
       </div>
     );
   }
