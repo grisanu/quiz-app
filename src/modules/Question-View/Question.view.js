@@ -19,7 +19,8 @@ class Question extends React.Component {
     this.state = {
       question: '',
       type: 'Boolean',
-      answer: '' };
+      answer: ''
+    };
   }
 
   updateState (key, _, value) {
@@ -31,13 +32,12 @@ class Question extends React.Component {
   handleClick (type) {
     if (type === 'submit') {
       this.props.addQuestion({
-        id: this.props.questionsByQuizId.length,
-        quizId: this.props.currentQuiz.id,
+        id: this.props.questionsByQuizId[this.props.session.currentQuiz.id].length + 1,
+        quizId: this.props.session.currentQuiz.id,
         question: this.state.question,
         type: this.state.type,
         answer: this.state.answer
       });
-      console.log('update store!');
     }
 
     browserHistory.push('/edit');
@@ -68,12 +68,12 @@ class Question extends React.Component {
         <Button
           label="Cancel"
           style={ styles.buttons }
-          handleClick={ this.handleClick.bind(this) }
+          handleClick={ this.handleClick.bind(this, 'cancel') }
         />
         <Button
           label="Submit"
           style={ styles.buttons }
-          handleClick={ this.handleClick.bind(this) }
+          handleClick={ this.handleClick.bind(this, 'submit') }
         />
       </div>
     );

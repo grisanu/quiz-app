@@ -3,10 +3,6 @@ import ModeButton from './ModeButton.view.js';
 import { browserHistory } from 'react-router';
 
 class Home extends React.Component {
-  constructor (props) {
-    super(props);
-  }
-
   handleClick (mode) {
     this.props.chooseMode(mode);
     browserHistory.push('/select');

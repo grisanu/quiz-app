@@ -4,11 +4,7 @@ import initialState from './../data/initialState.json';
 const questionReducer = (state = initialState.questions, action) => {
   switch (action.type) {
     case ADD_QUESTION:
-      return
-        [
-          ...state,
-          action.payload
-        ];
+      return [ ...state, action.payload ];
     default:
       return state;
   }

@@ -44,10 +44,8 @@ class Edit extends React.Component {
     */
     cb = cb === undefined ? arr => arr : cb;
 
-    return cb(listOfAllQuestions.map(question => {
-      if (question.quizId === this.props.session.currentQuiz.id) {
-        return question;
-      }
+    return cb(listOfAllQuestions.filter(question => {
+      return question.quizId === this.props.session.currentQuiz.id;
     }));
   }
 

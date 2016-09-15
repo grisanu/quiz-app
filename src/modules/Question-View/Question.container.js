@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addQuestion: (question) => {
+  addQuestion: question => {
     dispatch(addQuestion(question));
   }
 });
