@@ -24,6 +24,7 @@
 -if have more time => make more tests
 -create higher order components to secure routes
 -add a feature to get average score of quiz => use summaryByQuizIdReducer.js
+-Add answer comparison so do not have to type in exact answer
 
     /*
 

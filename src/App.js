@@ -7,7 +7,8 @@ import Edit from './modules/Edit-View/Edit.container.js';
 import Question from './modules/Question-View/Question.container.js';
 import Student from './modules/Student-View/Student.container.js';
 import Submit from './modules/Submit-View/Submit.container.js';
-import './App.css';
+
+import './styles/App.css';
 
 const App = () => (
   <Route path="/" component={ Navbar }>

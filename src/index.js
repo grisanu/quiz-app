@@ -5,7 +5,8 @@ import Root from './Root';
 import { browserHistory } from 'react-router';
 import configureStore from './configureStore';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import './index.css';
+
+import './styles/index.css';
 
 injectTapEventPlugin();
 
