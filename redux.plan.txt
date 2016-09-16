@@ -2,11 +2,12 @@
   session:
     {
       mode: 'edit/student',
-      quiz:
+      currentQuiz:
         {
           id:
           name:
-        }
+        },
+      answers: []
     }
   quizzes:
     [
@@ -29,8 +30,8 @@
     ],
   entries:
     [
-      { id: , quizId: , score: },
-      { id: , quizId: , score: }
+      { id: , quizId: , score: [score, totalScore] },
+      { id: , quizId: , score: [score, totalScore] }
       ...
     ],
   summaryByQuizId:
@@ -38,24 +39,4 @@
       0: [averageScore, totalScore],
       1: [averageScore, totalScore]
     }
-}
-
-
-Component student: quiz1
-state: {
-  currentQuiz: {
-    id:
-    name:
-    questions: [
-      {
-        id:
-        q: ''
-        type: 'tf'/'txt'
-        answer: true / ''
-      },
-      {},
-      {},
-    ]
-  },
-  answers: [1, 2, 3, 4 ...]
 }

@@ -5,6 +5,7 @@ import Next from 'material-ui/svg-icons/av/fast-forward';
 import Previous from 'material-ui/svg-icons/av/fast-rewind';
 import Button from './../../components/ModeButton.js';
 import answerType from './../../data/answerTypesAndChoices.json';
+import { browserHistory } from 'react-router';
 
 const choicesByAnswerType = answerType.reduce((acc, type) => {
   acc[type.value] = type.choices;
@@ -82,7 +83,8 @@ class Student extends React.Component {
   }
 
   handleSubmit () {
-
+    this.props.saveAnswers(this.state.answers);
+    browserHistory.push('/student/submit');
   }
 
   render () {
@@ -115,6 +117,7 @@ class Student extends React.Component {
         <Button
           label="Submit"
           style={ styles.buttons }
+          disabled={ this.state.answers.length !== this.state.questionsList.length ? true : false }
           handleClick={ this.handleSubmit.bind(this) }
         />
       </div>
@@ -126,7 +129,8 @@ Student.propTypes = {
   questions: PropTypes.array.isRequired,
   session: PropTypes.object.isRequired,
   questionsByQuizId: PropTypes.object.isRequired,
-  makeQuestionsList: PropTypes.func.isRequired
+  makeQuestionsList: PropTypes.func.isRequired,
+  saveAnswers: PropTypes.func.isRequired
 };
 
 export default Student;

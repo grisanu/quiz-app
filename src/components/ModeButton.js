@@ -11,6 +11,7 @@ const ModeButton = props => (
   <RaisedButton
     label={ props.label }
     secondary={ true }
+    disabled={ props.disabled }
     onTouchTap={ props.handleClick }
     style={ props.style ? props.style : style }
   />
@@ -19,7 +20,8 @@ const ModeButton = props => (
 ModeButton.propTypes = {
   label: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
-  style: PropTypes.object
+  style: PropTypes.object,
+  disabled: PropTypes.bool
 };
 
 export default ModeButton;

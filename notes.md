@@ -17,6 +17,13 @@
 *    ~/src/modules/Question-View/Answer.view.js to display type of answer
 */
 
+-arranged files into view, and container
+-initial states and answer types are in json files
+-
+
+-if have more time => make more tests
+-create higher order components to secure routes
+-add a feature to get average score of quiz => use summaryByQuizIdReducer.js
 
     /*
 

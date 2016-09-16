@@ -3,7 +3,7 @@ import quizReducer from './quizReducer';
 import sessionReducer from './sessionReducer';
 import questionReducer from './questionReducer';
 import questionsByQuizIdReducer from './questionsByQuizIdReducer';
-// import entryReducer from './entryReducer';
+import entryReducer from './entryReducer';
 // import summaryByQuizIdReducer from './summaryByQuizIdReducer';
 
 const rootReducer = combineReducers({
@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   questionsByQuizId: questionsByQuizIdReducer,
   questions: questionReducer,
-  // entries: entryReducer,
+  entries: entryReducer,
   // summary: summaryByQuizIdReducer
 });
 

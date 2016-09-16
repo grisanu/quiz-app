@@ -4,7 +4,6 @@ import { Router } from 'react-router';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-
 const Root = (props) => (
   <MuiThemeProvider>
     <Provider store={ props.store }>

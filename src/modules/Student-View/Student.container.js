@@ -1,6 +1,7 @@
-import { connect } from 'react-redux';
 import Student from './Student.view.js';
+import { connect } from 'react-redux';
 import { makeQuestionsList } from './../Edit-View/makeQuestionsListActions';
+import { saveAnswers } from './saveAnswersActions';
 
 const mapStateToProps = state => ({
   questionsByQuizId: state.questionsByQuizId,
@@ -11,6 +12,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   makeQuestionsList: (quizId, order) => {
     dispatch(makeQuestionsList(quizId, order));
+  },
+  saveAnswers: answers => {
+    dispatch(saveAnswers(answers));
   }
 });
 

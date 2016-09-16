@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ModeButton from './../../components/ModeButton.js';
 import { browserHistory } from 'react-router';
 
@@ -17,4 +17,9 @@ class Home extends React.Component {
     );
   }
 }
+
+Home.propTypes = {
+  chooseMode: PropTypes.func.isRequired
+};
+
 export default Home;
