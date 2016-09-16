@@ -3,7 +3,7 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 
 const QuestionsTable = props => (
   <Table height="20em" fixedHeader={ true } selectable={ false }>
-    <TableHeader displaySelectAll={ false } adjustForCheckbox = { false }>
+    <TableHeader displaySelectAll={ false } adjustForCheckbox={ false }>
       <TableRow>
         <TableHeaderColumn colSpan="3" tooltip="Quiz Name" style={ {textAlign: 'center'} }>
           { props.session.currentQuiz.name }
