@@ -3,7 +3,7 @@ import QuestionCard from './QuestionCard.view.js';
 import IconButton from 'material-ui/IconButton';
 import Next from 'material-ui/svg-icons/av/fast-forward';
 import Previous from 'material-ui/svg-icons/av/fast-rewind';
-import Button from './../Home-View/ModeButton.view.js';
+import Button from './../../components/ModeButton.js';
 import answerType from './../../data/answerTypesAndChoices.json';
 
 const choicesByAnswerType = answerType.reduce((acc, type) => {
@@ -88,7 +88,6 @@ class Student extends React.Component {
   render () {
     return (
       <div>
-        { JSON.stringify(this.state.answers[this.state.currentQuestionIndex] === undefined ? "nothing here!" : this.state.answers[this.state.currentQuestionIndex])}
         <QuestionCard
           question={ this.state.questionsList[this.state.currentQuestionIndex] }
           answerChoices={ choicesByAnswerType }
@@ -97,7 +96,6 @@ class Student extends React.Component {
           updateState={ this.updateState.bind(this) }
           default={ this.state.answers[this.state.currentQuestionIndex] === undefined ? null : this.state.answers[this.state.currentQuestionIndex] }
         />
-        { JSON.stringify(this.state.answers) }
         <IconButton
           onTouchTap={ this.changeQuestion.bind(this, 'previous') }
           iconStyle={ styles.mediumIcon }

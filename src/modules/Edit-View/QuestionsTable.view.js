@@ -19,7 +19,7 @@ const QuestionsTable = props => (
     <TableBody>
       {
         props.questionsList.map(question => (
-          <TableRow>
+          <TableRow key={ question.id }>
             <TableRowColumn>{ question.question }</TableRowColumn>
             <TableRowColumn>{ question.type }</TableRowColumn>
             <TableRowColumn>{ question.answer }</TableRowColumn>

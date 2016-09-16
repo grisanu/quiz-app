@@ -50,20 +50,6 @@
         "question": "Cats will Pick: Honey Straws, Gummi Worms, Sour Skittles",
         "type": "String",
         "answer": "Honey Straws"
-      },
-      {
-        "id": 6,
-        "quizId": 0,
-        "question": "Black blah",
-        "type": "String",
-        "answer": "TTTTT"
-      },
-      {
-        "id": 7,
-        "quizId": 0,
-        "question": "fopr shame",
-        "type": "String",
-        "answer": "qwertyjki"
       }
     ]
 }

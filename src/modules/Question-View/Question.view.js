@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
-import InputField from './InputField.view.js';
-import ChoicesButton from './ChoicesButton.view.js';
-import Answer from './Answer.view.js';
-import Button from './../Home-View/ModeButton.view.js';
+import InputField from './../../components/InputField.js';
+import ChoicesButton from './../../components/ChoicesButton.js';
+import Answer from './../../components/Answer.js';
+import Button from './../../components/ModeButton.js';
 import choices from './../../data/answerTypesAndChoices.json';
 import { browserHistory } from 'react-router';
 
@@ -46,7 +46,6 @@ class Question extends React.Component {
   render () {
     return (
       <div>
-        { JSON.stringify(this.state)}
         <p>Question:</p>
         <InputField
           label="Enter your question here."

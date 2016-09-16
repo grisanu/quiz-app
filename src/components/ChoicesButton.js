@@ -6,8 +6,6 @@ const style = {
 };
 
 const ChoicesButton = props => (
-  <div>
-    { JSON.stringify(props) }
   <RadioButtonGroup
     name={ props.name }
     valueSelected={ props.default ? props.default : null }
@@ -24,7 +22,6 @@ const ChoicesButton = props => (
       ))
     }
   </RadioButtonGroup>
-  </div>
 );
 
 ChoicesButton.propTypes = {

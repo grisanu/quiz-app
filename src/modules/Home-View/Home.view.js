@@ -1,5 +1,5 @@
 import React from 'react';
-import ModeButton from './ModeButton.view.js';
+import ModeButton from './../../components/ModeButton.js';
 import { browserHistory } from 'react-router';
 
 class Home extends React.Component {

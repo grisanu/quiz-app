@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import InputField from './InputField.view.js';
-import ChoicesButton from './ChoicesButton.view.js';
+import InputField from './InputField.js';
+import ChoicesButton from './ChoicesButton.js';
 
 const Answer = props => {
   if (props.value === 'Boolean') {

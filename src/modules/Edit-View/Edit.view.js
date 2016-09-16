@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Button from './../Home-View/ModeButton.view.js';
+import Button from './../../components/ModeButton.js';
 import IconButton from 'material-ui/IconButton';
 import BackArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 import QuestionsTable from './QuestionsTable.view.js';

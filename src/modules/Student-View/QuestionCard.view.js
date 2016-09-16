@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Answer from './../Question-View/Answer.view.js';
+import Answer from './../../components/Answer.js';
 import {Card, CardActions} from 'material-ui/Card';
 import { cyan500 } from 'material-ui/styles/colors';
 
