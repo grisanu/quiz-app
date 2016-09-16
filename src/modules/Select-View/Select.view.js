@@ -14,12 +14,6 @@ class Select extends React.Component {
     this.state = { value: -1 };
   }
 
-  // componentWillMount () {
-  //   if (this.props.session.mode === undefined) {
-  //     this.props.chooseMode('student');
-  //   }
-  // }
-
   handleSelect (event, index, value) {
     this.props.chooseQuiz({
       name: this.props.quizzes.filter(quiz => quiz.id === value)[0].name,

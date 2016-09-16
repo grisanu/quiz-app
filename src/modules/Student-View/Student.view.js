@@ -54,13 +54,12 @@ class Student extends React.Component {
     this.setState( { questionsList: questionsList });
   }
 
-  makeList (listOfAllQuestions, cb) {
+  makeList (listOfAllQuestions, cb=a=>a) {
     /**
     * cb(array of question object)
     * Objective: mutate the array to change question object order
     * Return: new array with new order
     */
-    cb = cb === undefined ? arr => arr : cb;
 
     return cb(listOfAllQuestions.filter(question => {
       return question.quizId === this.props.session.currentQuiz.id;

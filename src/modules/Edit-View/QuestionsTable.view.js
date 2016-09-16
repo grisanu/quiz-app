@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 const QuestionsTable = props => (
-  <Table height="20em" fixedHeader={ true } >
-    <TableHeader>
+  <Table height="20em" fixedHeader={ true } selectable={ false }>
+    <TableHeader displaySelectAll={ false } adjustForCheckbox = { false }>
       <TableRow>
         <TableHeaderColumn colSpan="3" tooltip="Quiz Name" style={ {textAlign: 'center'} }>
           { props.session.currentQuiz.name }
@@ -16,7 +16,7 @@ const QuestionsTable = props => (
       </TableRow>
     </TableHeader>
 
-    <TableBody>
+    <TableBody displayRowCheckbox={ false }>
       {
         props.questionsList.map(question => (
           <TableRow key={ question.id }>
