@@ -46,22 +46,25 @@ class Question extends React.Component {
   render () {
     return (
       <div>
+        { JSON.stringify(this.state)}
         <p>Question:</p>
         <InputField
           label="Enter your question here."
           hint="eg. What do cats love?"
+          default={ this.state.question === '' ? null : this.state.question }
           updateState={ this.updateState.bind(this, 'question') }
         />
         <p>Answer Type:</p>
         <ChoicesButton
           name="Answer Type Choices"
-          default={ 'Boolean' }
+          default={ this.state.type }
           choices={ choices }
           updateState={ this.updateState.bind(this, 'type') }
         />
         <p>Answer:</p>
         <Answer
           value={ this.state.type }
+          default={ this.state.answer === '' ? null : this.state.answer }
           updateState={ this.updateState.bind(this, 'answer') }
           choices={ choices.filter(type => type.value === this.state.type)[0].choices }
         />
