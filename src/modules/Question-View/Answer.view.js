@@ -9,6 +9,7 @@ const Answer = props => {
         name="Possible Choices"
         updateState={ props.updateState }
         choices={ props.choices }
+        default={ props.default }
       />
     );
   } else if (props.value === 'String') {
@@ -17,6 +18,7 @@ const Answer = props => {
         label="Enter your answer here."
         hint="eg. A great pair of boots!"
         updateState={ props.updateState }
+        default={ props.default }
       />
     );
   }
@@ -25,7 +27,8 @@ const Answer = props => {
 Answer.propTypes = {
   value: PropTypes.string.isRequired,
   updateState: PropTypes.func.isRequired,
-  choices: PropTypes.array
+  choices: PropTypes.array,
+  default: PropTypes.string
 };
 
 export default Answer;

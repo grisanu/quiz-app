@@ -34,7 +34,7 @@ class Select extends React.Component {
       <DropDownMenu value={ this.state.value } style={ style } autoWidth={ false } onChange={ this.handleSelect.bind(this) }>
         <MenuItem value={ -1 } primaryText="Select a Quiz..." disabled={ true }/>
         { this.props.quizzes.map(quiz => (
-            <MenuItem value={ quiz.id } primaryText={ quiz.name } />
+            <MenuItem key={ quiz.id } value={ quiz.id } primaryText={ quiz.name } />
           ))
         }
       </DropDownMenu>

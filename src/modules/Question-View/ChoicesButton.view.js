@@ -6,14 +6,17 @@ const style = {
 };
 
 const ChoicesButton = props => (
+  <div>
+    { JSON.stringify(props) }
   <RadioButtonGroup
     name={ props.name }
-    defaultSelected={ props.default ? props.default : null }
+    valueSelected={ props.default ? props.default : null }
     onChange={ props.updateState ? props.updateState : () => {} }
-    >
+  >
     {
-      props.choices.map(choice => (
+      props.choices.map((choice, i) => (
         <RadioButton
+          key={ i }
           value={ choice.value }
           label={ choice.label }
           style={ props.style ? props.style : style }
@@ -21,6 +24,7 @@ const ChoicesButton = props => (
       ))
     }
   </RadioButtonGroup>
+  </div>
 );
 
 ChoicesButton.propTypes = {

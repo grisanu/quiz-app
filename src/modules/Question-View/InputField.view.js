@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import TextField from 'material-ui/TextField';
-import { blue500 } from 'material-ui/styles/colors';
+import { cyan500 } from 'material-ui/styles/colors';
 
 const style = {
-  color: blue500
+  color: cyan500
 };
 
 const InputField = props => (
@@ -11,17 +11,19 @@ const InputField = props => (
     hintText={ props.hint }
     floatingLabelText={ props.label }
     onChange={ props.updateState }
+    value={ props.default ? props.default : '' }
     multiLine={ true }
     errorText="This field is required."
     errorStyle={ props.style ? props.style : style }
-    rows={1}
+    rows={ 1 }
   />
 );
 
-InputField.proptypes = {
+InputField.propTypes = {
   hint: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  updateState: PropTypes.string.isRequired
+  updateState: PropTypes.func.isRequired,
+  default: PropTypes.string
 };
 
 export default InputField;

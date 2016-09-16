@@ -80,9 +80,9 @@ class Question extends React.Component {
   }
 }
 
-Question.proptypes = {
+Question.propTypes = {
   addQuestion: PropTypes.func.isRequired,
-  questionsByQuizId: PropTypes.array.isRequired,
+  questionsByQuizId: PropTypes.object.isRequired,
   session: PropTypes.object.isRequired
 };
 

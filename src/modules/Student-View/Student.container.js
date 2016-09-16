@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Student from './Student.view.js';
+import { makeQuestionsList } from './../Edit-View/makeQuestionsListActions';
 
 const mapStateToProps = state => ({
   questionsByQuizId: state.questionsByQuizId,
@@ -7,4 +8,10 @@ const mapStateToProps = state => ({
   session: state.session
 });
 
-export default connect(mapStateToProps)(Student);
+const mapDispatchToProps = dispatch => ({
+  makeQuestionsList: (quizId, order) => {
+    dispatch(makeQuestionsList(quizId, order));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Student);

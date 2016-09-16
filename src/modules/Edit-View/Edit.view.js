@@ -28,10 +28,16 @@ class Edit extends React.Component {
   }
 
   componentWillMount () {
-    const questionsList = this.makeList.bind(this)(this.props.questions);
+    const quizId = this.props.session.currentQuiz.id;
+    let questionsList = this.makeList.bind(this)(this.props.questions);
 
-    // update store
-    this.props.makeQuestionsList(this.props.session.currentQuiz.id, questionsList);
+    if (this.props.questionsByQuizId[quizId] === undefined ||
+        questionsList.length !== this.props.questionsByQuizId[quizId].length) {
+      // update store
+      this.props.makeQuestionsList(quizId, questionsList);
+      console.log('updated!');
+    }
+
     // update state
     this.setState( { questionsList: questionsList });
   }
@@ -90,7 +96,7 @@ class Edit extends React.Component {
   }
 }
 
-Edit.proptypes = {
+Edit.propTypes = {
   questions: PropTypes.array.isRequired,
   session: PropTypes.object.isRequired,
   questionsByQuizId: PropTypes.object.isRequired,
