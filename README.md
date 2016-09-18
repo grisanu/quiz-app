@@ -2,11 +2,26 @@
 
 ## Table of Contents
 
+1. [Getting Started] (#start)
 1. [Directory] (#dir)
 1. [Technologies] (#tech)
 1. [Extensibility] (#extens)
 1. [Future] (#future)
  
+##<a id="start"></a>Getting Started
+
+```
+npm install
+npm start
+```
+
+Runs the app in development mode.
+Open [http://localhost:3000] (http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.
+You will see the build errors and lint warnings in the console.
+
+
 ##<a id="dir"></a>Directory
 
 ```
