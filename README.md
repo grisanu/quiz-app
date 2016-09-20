@@ -7,7 +7,7 @@
 1. [Technologies] (#tech)
 1. [Extensibility] (#extens)
 1. [Future] (#future)
- 
+
 ##<a id="start"></a>Getting Started
 
 ```
@@ -64,15 +64,15 @@ The directory structure is designed with maintainability and extensibility in mi
 These issues are addressed by:
 
 * Persisting the quizzes in a database (especially quiz answers)
-  * Quizzes, questions and answers can be stored to database, the logic to store to database can go where the logic to dispatch Redux actions can go
+  * Quizzes, questions and answers can be stored to database, the logic to store to database can go where the logic to dispatch Redux actions go
 * Management of multiple quizzes
-  * Redux store and React components are designed to already handle multiple quizzes. Where you can store multiple quizzes in an array, there is a Select view to select different quizzes and questions belong to specific quizzes
+  * Redux store and React components are designed to already handle multiple quizzes, where you can store multiple quizzes in an array, there is a Select view to select different quizzes and questions belong to specific quizzes
   * Adding and remove a quiz can easiliy by accomplished through this design, merely need to create an action and add a component to have the logic.
 * Removing and reordering questions when editing the quiz:
   * There is a key, `questionsByQuizId` for question order which would allow to store question objects in a array to preserve and change order.
   * Removing a question can be done by creating an action to remove a question (identified by id) from `questions` in Redux store.
 * Other answer types, e.g. multiple choice
-  * Answer types are be added and details can be specified by making changes to '~/src/data/answerTypesAndChoices.json`
+  * Answer types are be added and details can be specified by making changes to `~/src/data/answerTypesAndChoices.json`
   * How the answers are display must also be specified by adding logic to `~/src/components/Answers.js`
 * Different quiz presentation, e.g. randomization of question order
   * Randomization of question in Student mode by be achieve by creating a function and corresponding React component to randomize, then passing the function in as callback to `makeList(listOfAllQuestions, callback)` function in `~/src/modules/Student-View/Student.view.js`
