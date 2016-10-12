@@ -3,7 +3,6 @@ import Button from './../../components/ModeButton.js';
 import IconButton from 'material-ui/IconButton';
 import BackArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 import QuestionsTable from './QuestionsTable.view.js';
-import { browserHistory } from 'react-router';
 
 const styles = {
   questionButton: {
@@ -21,84 +20,38 @@ const styles = {
   }
 };
 
-class Edit extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { questionsList: [] };
-  }
+const EditView = props => (
+  <div>
+    <IconButton
+      onTouchTap={ props.onTouchTap }
+      iconStyle={ styles.largeIcon }
+      style={ styles.large }
+    >
+      <BackArrow />
+    </IconButton>
+    <Button
+      label="Add A Question"
+      handleClick={ props.handleAdd }
+      style={ styles.questionButton }
+    />
+    <Button
+      label="Student Mode"
+      handleClick={ props.handlePlay }
+      style={ styles.questionButton }
+    />
+    <QuestionsTable
+      questionsList={ props.questionsList }
+      session={ props.session }
+    />
+  </div>
+);
 
-  componentWillMount () {
-    const quizId = this.props.session.currentQuiz.id;
-    let questionsList = this.makeList.bind(this)(this.props.questions);
-
-    if (this.props.questionsByQuizId[quizId] === undefined ||
-        questionsList.length !== this.props.questionsByQuizId[quizId].length) {
-      // update store
-      this.props.makeQuestionsList(quizId, questionsList);
-      console.log('updated!');
-    }
-
-    // update state
-    this.setState( { questionsList: questionsList });
-  }
-
-  makeList (listOfAllQuestions, cb=a=>a) {
-    /**
-    * cb(array of question object)
-    * Objective: mutate the array to change question object order
-    * Return: new array with new order
-    */
-    return cb(listOfAllQuestions.filter(question => {
-      return question.quizId === this.props.session.currentQuiz.id;
-    }));
-  }
-
-  handleBack () {
-    browserHistory.push('/select');
-  }
-
-  handleAdd () {
-    browserHistory.push('/edit/addQuestion');
-  }
-
-  handlePlay () {
-    browserHistory.push('/student');
-  }
-
-  render () {
-    return (
-      <div>
-        <IconButton
-          onTouchTap={ this.handleBack.bind(this) }
-          iconStyle={ styles.largeIcon }
-          style={ styles.large }
-        >
-          <BackArrow />
-        </IconButton>
-        <Button
-          label="Add A Question"
-          handleClick={ this.handleAdd.bind(this) }
-          style={ styles.questionButton }
-        />
-        <Button
-          label="Student Mode"
-          handleClick={ this.handlePlay.bind(this) }
-          style={ styles.questionButton }
-        />
-        <QuestionsTable
-          questionsList={ this.state.questionsList }
-          session={ this.props.session }
-        />
-      </div>
-    );
-  }
-}
-
-Edit.propTypes = {
-  questions: PropTypes.array.isRequired,
-  session: PropTypes.object.isRequired,
-  questionsByQuizId: PropTypes.object.isRequired,
-  makeQuestionsList: PropTypes.func.isRequired
+EditView.PropTypes = {
+  onTouchTap: PropTypes.func.isRequired,
+  handleAdd: PropTypes.func.isRequired,
+  handlePlay: PropTypes.func.isRequired,
+  questionsList: PropTypes.array.isRequired,
+  session: PropTypes.object.isRequired
 };
 
-export default Edit;
+export default EditView;
