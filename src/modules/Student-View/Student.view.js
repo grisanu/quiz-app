@@ -82,20 +82,29 @@ class Student extends React.Component {
   }
 
   handleSubmit () {
+    const quizId = this.props.session.currentQuiz.id;
+    const answers = this.state.answers;
+    const questions = this.props.questionsByQuizId[quizId];
     /**
     * Answers saved
     */
-    this.props.saveAnswers(this.state.answers);
+    this.props.saveAnswers(answers);
 
     /**
     * Answers are compared and scores are computed here
     */
-    const quizId = this.props.session.currentQuiz.id;
-    const answers = this.props.session.answers;
-    const questions = this.props.questionsByQuizId[quizId];
     const entryScore = answers.reduce((score, answer, index) => {
       return answer === questions[index].answer ? score+1 : score;
     }, 0);
+
+    // save score
+    this.props.saveScore([entryScore, answers.length]);
+    // save entry
+    this.props.addEntry({
+      id: this.props.entries.length+1,
+      quizId: quizId,
+      score: [ entryScore, answers.length ]
+    });
 
     browserHistory.push('/student/submit');
   }
@@ -141,9 +150,11 @@ class Student extends React.Component {
 Student.propTypes = {
   questions: PropTypes.array.isRequired,
   session: PropTypes.object.isRequired,
+  entries: PropTypes.array.isRequired,
   questionsByQuizId: PropTypes.object.isRequired,
   makeQuestionsList: PropTypes.func.isRequired,
   saveAnswers: PropTypes.func.isRequired,
+  saveScore: PropTypes.func.isRequired,
   addEntry: PropTypes.func.isRequired
 };
 

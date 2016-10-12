@@ -1,4 +1,4 @@
-import { ADD_ENTRY } from './../modules/Submit-View/addEntryActions';
+import { ADD_ENTRY } from './../modules/Student-View/addEntryActions';
 import initialState from './../data/initialState.json';
 
 const entryReducer = (state = initialState.entries, action) => {

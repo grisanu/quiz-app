@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
   questionsByQuizId: state.questionsByQuizId,
-  session: state.session,
-  entries: state.entries
+  session: state.session
 });
 
 export default connect(mapStateToProps)(Submit);

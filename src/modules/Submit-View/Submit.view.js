@@ -16,19 +16,9 @@ class Submit extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      score: 0,
-      total: 0
+      score: this.props.session.score[0].toString(),
+      total: this.props.session.score[1].toString()
     };
-  }
-
-  componentWillMount () {
-    this.setState({ score: entryScore, total: answers.length }, () => {
-      this.props.addEntry({
-        id: this.props.entries.length+1,
-        quizId: quizId,
-        score: [ entryScore, answers.length ]
-      });
-    });
   }
 
   handleClick () {
@@ -39,7 +29,7 @@ class Submit extends React.Component {
     return (
       <Card>
         <h2>You Got:</h2>
-        <h1 style={ style.score }>{ this.state.score.toString() + '/' + this.state.total.toString() }</h1>
+        <h1 style={ style.score }>{ this.state.score + '/' + this.state.total }</h1>
         <CardActions>
           <Button label="Done" handleClick={ this.handleClick.bind(this) }></Button>
         </CardActions>
@@ -50,8 +40,7 @@ class Submit extends React.Component {
 
 Submit.propTypes = {
   session: PropTypes.object.isRequired,
-  questionsByQuizId: PropTypes.object.isRequired,
-  entries: PropTypes.array.isRequired
+  questionsByQuizId: PropTypes.object.isRequired
 };
 
 export default Submit;

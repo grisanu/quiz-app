@@ -8,7 +8,8 @@ import { addEntry } from './addEntryActions';
 const mapStateToProps = state => ({
   questionsByQuizId: state.questionsByQuizId,
   questions: state.questions,
-  session: state.session
+  session: state.session,
+  entries: state.entries
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -18,7 +19,7 @@ const mapDispatchToProps = dispatch => ({
   saveAnswers: answers => {
     dispatch(saveAnswers(answers));
   },
-  saveScores: score => {
+  saveScore: score => {
     dispatch(saveScore(score));
   },
   addEntry: entry => {
