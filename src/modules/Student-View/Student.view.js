@@ -83,6 +83,8 @@ class Student extends React.Component {
 
   handleSubmit () {
     this.props.saveAnswers(this.state.answers);
+
+
     browserHistory.push('/student/submit');
   }
 

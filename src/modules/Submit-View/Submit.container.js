@@ -1,6 +1,5 @@
 import Submit from './Submit.view.js';
 import { connect } from 'react-redux';
-import { addEntry } from './addEntryActions';
 
 const mapStateToProps = state => ({
   questionsByQuizId: state.questionsByQuizId,
@@ -8,11 +7,4 @@ const mapStateToProps = state => ({
   entries: state.entries
 });
 
-const mapDispatchToProps = dispatch => ({
-  addEntry: entry => {
-    dispatch(addEntry(entry));
-  }
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Submit);
+export default connect(mapStateToProps)(Submit);
