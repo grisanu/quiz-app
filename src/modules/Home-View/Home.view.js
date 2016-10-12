@@ -1,25 +1,16 @@
 import React, { PropTypes } from 'react';
 import ModeButton from './../../components/ModeButton.js';
-import { browserHistory } from 'react-router';
 
-class Home extends React.Component {
-  handleClick (mode) {
-    this.props.chooseMode(mode);
-    browserHistory.push('/select');
-  }
+const HomeView = props => (
+  <div>
+    <ModeButton label="EDIT" handleClick={ props.handleEdit } />
+    <ModeButton label="STUDENT" handleClick={ props.handleStudent } />
+  </div>
+);
 
-  render () {
-    return (
-      <div>
-        <ModeButton label="EDIT" handleClick={ this.handleClick.bind(this, "edit") } />
-        <ModeButton label="STUDENT" handleClick={ this.handleClick.bind(this, "student") } />
-      </div>
-    );
-  }
-}
-
-Home.propTypes = {
-  chooseMode: PropTypes.func.isRequired
+HomeView.propTypes = {
+  handleEdit: PropTypes.func.isRequired,
+  handleStudent: PropTypes.func.isRequired
 };
 
-export default Home;
+export default HomeView;
