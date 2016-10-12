@@ -22,16 +22,6 @@ class Submit extends React.Component {
   }
 
   componentWillMount () {
-    /**
-    * Answers are compared and scores are computed here
-    */
-    const quizId = this.props.session.currentQuiz.id;
-    const answers = this.props.session.answers;
-    const questions = this.props.questionsByQuizId[quizId];
-    const entryScore = answers.reduce((score, answer, index) => {
-      return answer === questions[index].answer ? score+1 : score;
-    }, 0);
-
     this.setState({ score: entryScore, total: answers.length }, () => {
       this.props.addEntry({
         id: this.props.entries.length+1,
@@ -61,8 +51,7 @@ class Submit extends React.Component {
 Submit.propTypes = {
   session: PropTypes.object.isRequired,
   questionsByQuizId: PropTypes.object.isRequired,
-  entries: PropTypes.array.isRequired,
-  addEntry: PropTypes.func.isRequired
+  entries: PropTypes.array.isRequired
 };
 
 export default Submit;

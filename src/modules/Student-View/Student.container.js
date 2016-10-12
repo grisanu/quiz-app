@@ -2,6 +2,7 @@ import Student from './Student.view.js';
 import { connect } from 'react-redux';
 import { makeQuestionsList } from './../Edit-View/makeQuestionsListActions';
 import { saveAnswers } from './saveAnswersActions';
+import { saveScore } from './saveScoreActions';
 import { addEntry } from './addEntryActions';
 
 const mapStateToProps = state => ({
@@ -16,6 +17,9 @@ const mapDispatchToProps = dispatch => ({
   },
   saveAnswers: answers => {
     dispatch(saveAnswers(answers));
+  },
+  saveScores: score => {
+    dispatch(saveScore(score));
   },
   addEntry: entry => {
     dispatch(addEntry(entry));

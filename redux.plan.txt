@@ -7,7 +7,8 @@
           id:
           name:
         },
-      answers: []
+      answers: [],
+      score: [score, totalscore]
     }
   quizzes:
     [
