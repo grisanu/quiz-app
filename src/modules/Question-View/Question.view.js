@@ -3,8 +3,6 @@ import InputField from './../../components/InputField.js';
 import ChoicesButton from './../../components/ChoicesButton.js';
 import Answer from './../../components/Answer.js';
 import Button from './../../components/ModeButton.js';
-import choices from './../../data/answerTypesAndChoices.json';
-import { browserHistory } from 'react-router';
 
 const styles = {
   buttons: {
@@ -14,34 +12,6 @@ const styles = {
 };
 
 class Question extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      question: '',
-      type: 'Boolean',
-      answer: ''
-    };
-  }
-
-  updateState (key, _, value) {
-    const newState = key === 'type' ? { [key]: value, answer: '' } : { [key]: value };
-
-    this.setState(newState);
-  }
-
-  handleClick (type) {
-    if (type === 'submit') {
-      this.props.addQuestion({
-        id: this.props.questionsByQuizId[this.props.session.currentQuiz.id].length + 1,
-        quizId: this.props.session.currentQuiz.id,
-        question: this.state.question,
-        type: this.state.type,
-        answer: this.state.answer
-      });
-    }
-
-    browserHistory.push('/edit');
-  }
 
   render () {
     return (
